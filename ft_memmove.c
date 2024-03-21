@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 15:29:48 by stalash           #+#    #+#             */
-/*   Updated: 2024/03/19 12:03:42 by stalash          ###   ########.fr       */
+/*   Updated: 2024/03/21 12:23:05 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*s;
 	size_t			i;
 
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	d = (unsigned char *)dst;
 	s = (unsigned char *)src;
 	i = 0;
@@ -32,15 +34,16 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		ft_memcpy(dst, src, len);
 	}
 	return (dst);
 }
 
+		// while (i < len)
+		// {
+		// 	d[i] = s[i];
+		// 	i++;
+		// }
 // #include <stdio.h>
 // #include <string.h>
 

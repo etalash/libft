@@ -6,7 +6,7 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:15:20 by stalash           #+#    #+#             */
-/*   Updated: 2024/03/19 13:58:59 by stalash          ###   ########.fr       */
+/*   Updated: 2024/03/21 10:56:32 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 extern int		ft_atoi(const char *str);
 extern void		ft_bzero(void *s, size_t n);
@@ -51,5 +57,15 @@ extern char		*ft_strtrim(char const *s1, char const *set);
 extern char		*ft_substr(char const *s, unsigned int start, size_t len);
 extern int		ft_tolower(int c);
 extern int		ft_toupper(int c);
+extern void		ft_lstadd_back(t_list **lst, t_list *new);
+extern void		ft_lstadd_front(t_list **lst, t_list *new);
+extern void		ft_lstclear(t_list **lst, void (*del)(void *));
+extern void		ft_lstdelone(t_list *lst, void (*del)(void*));
+extern void		ft_lstiter(t_list *lst, void (*f)(void *));
+extern t_list	*ft_lstlast(t_list *lst);
+extern t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), \
+							void (*del)(void *));
+extern t_list	*ft_lstnew(void *content);
+extern int		ft_lstsize(t_list *lst);
 
 #endif

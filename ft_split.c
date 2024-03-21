@@ -6,27 +6,27 @@
 /*   By: stalash <stalash@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:24:25 by stalash           #+#    #+#             */
-/*   Updated: 2024/03/19 17:22:48 by stalash          ###   ########.fr       */
+/*   Updated: 2024/03/19 17:51:25 by stalash          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	ft_word_count(const char *s, char c)
 {
 	int	count;
-	int	in_word;	 // Flag to indicate if currently in a word
+	int	in_word;
 
 	count = 0;
 	in_word = 0;
 	while (*s)
 	{
 		if (*s == c)
-			in_word = 0; // Not in a word
+			in_word = 0;
 		else if (!in_word)
 		{
-			in_word = 1; // Now in a word
-			count++; // Increment word count
+			in_word = 1;
+			count++;
 		}
 		s++;
 	}
